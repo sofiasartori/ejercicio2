@@ -9,9 +9,14 @@
     
     //Primer manera
 
-    $miArray = array(rand(), rand(), rand(), rand(), rand());
-    var_dump($miArray);
+    /*$miArray = array(rand(), rand(), rand(), rand(), rand());
+    var_dump($miArray);*/
 
     //Segunda manera
+    $miArray = array();
+    for($i=0; $i<5; $i++){
+        $miArray[$i] = rand();
+    }
+    var_dump($miArray);
 
 ?>
