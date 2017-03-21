@@ -13,9 +13,17 @@
     var_dump($miArray);*/
 
     //Segunda manera
-    $miArray = array();
+    /*$miArray = array();
     for($i=0; $i<5; $i++){
         $miArray[$i] = rand();
+    }
+    var_dump($miArray);*/
+
+    //Tercera manera
+
+    $miArray = array();
+    for($i=0; $i<5; $i++){
+        array_push($miArray, rand());
     }
     var_dump($miArray);
 
