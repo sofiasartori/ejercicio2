@@ -1,4 +1,7 @@
 <?php
+
+    require_once 'funciones.php';
+
     echo "Ejercicio 1<br>";
 
     echo "Ejercicio 2<br>";
@@ -64,5 +67,19 @@
         array_push($miArray, rand());
     }
     var_dump($miArray);
+
+    echo '<br>Ejercicio 11<br>';
+
+    $potencia = Calculadora::Potencia();
+    echo $potencia;
+
+    echo '<br>Ejercicio 12<br>';
+    echo strval(Calculadora::invertirPalabra('Hola'));
+
+    echo '<br>Ejercicio 14<br>';
+    echo Calculadora::esPar(4).'<br>';
+    echo Calculadora::esImpar(4).'<br>';
+
+
 
 ?>
