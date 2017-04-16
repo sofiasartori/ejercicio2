@@ -1,13 +1,24 @@
 <?php
 
     require_once 'funciones.php';
+    require_once 'figuraGeometrica.php';
 
     echo "Ejercicio 1<br>";
+
+    /*ARREGLAR
+    $suma = 0;
+    $numero=1;
+
+    while($suma<1000){
+        $suma = $suma+$numero;
+        $numero += $suma;
+        echo $suma.'<br>';
+    }*/
 
     echo "Ejercicio 2<br>";
 
     echo date("y-M-d");
-    $mes = date('m');
+    $mes = date('M');
     echo '<br>';
 
     if($mes == 'Jan' || $mes == 'Feb' || $mes =='Dec')
@@ -36,9 +47,34 @@
     else
         echo '<br>'.$numero3;
 
-    echo '<br>Ejercicio 4';
+    echo '<br>Ejercicio 4<br>';
+    $operador= '*';
 
-    
+    $opt1 = 10;
+    $opt2= 2;
+
+    switch ($operador) {
+        case '*':
+            echo $opt1*$opt2;
+            break;
+        case '-':
+            echo $opt1-$opt2;
+            break;
+        case '+':
+            echo $opt1+$opt2;
+            break;
+        case '/':
+            echo $opt1/$opt2;
+            break;        
+        default:
+            break;
+    }
+
+    echo "<br>Ejercicio 5<br>";
+
+    //ARREGLAR $numero = new NumberFormatter('es', NumberFormatter::SPELLOUT);
+
+    //echo $numero->format(10);    
 
     echo "<br>Ejercicio 6";
 
@@ -68,18 +104,64 @@
     }
     var_dump($miArray);
 
+    echo"<br>Ejercicio 7<br>";
+    /*ARREGLAR
+    $numeroImpar = 0;
+    $arrayImpar = array();
+
+    for($cantidad=0; $cantidad<= 10; $cantidad++){
+        if($numeroImpar %2 != 0 ){
+            echo $numeroImpar.'<br>';
+            array_push($arrayImpar, $numeroImpar);
+        }
+        $numeroImpar++;
+    }*/
+
+    echo"<br>Ejercicio 8<br>";
+    
+    $arrayAsoc = array(
+        '1'=>90,
+        '30'=>7,
+        'e'=>99,
+        'hola'=>'mundo');
+    foreach ($arrayAsoc as $key => $value) {
+        echo '$v['.$key.']='.$value.';';
+    }
+
+    echo '<br>Ejercicio 9<br>';
+
+    $arrayLapicera = array();
+
+    array_push($arrayLapicera, 'color', 'azul');
+    array_push($arrayLapicera, 'marca', 'bic');
+    array_push($arrayLapicera, 'trazo', 'medio');
+    array_push($arrayLapicera, 'precio','$10');
+    var_dump($arrayLapicera);
+
+    echo '<br>Ejercicio 10<br>';   
+    
+    $arrayDeArray = array();
+
+    array_push($arrayDeArray, $arrayLapicera);
+    var_dump($arrayDeArray); 
+
     echo '<br>Ejercicio 11<br>';
 
-    $potencia = Calculadora::Potencia();
-    echo $potencia;
+    for ($i=0; $i<4; $i++){
+        echo Calculadora::Potencia($i, $i).'<br>';
+    }
 
+    /*ARREGLAR
     echo '<br>Ejercicio 12<br>';
-    echo strval(Calculadora::invertirPalabra('Hola'));
+    echo Calculadora::invertirPalabra('Hola');*/
+
+    echo '<br>Ejercicio 13<br>';
+    echo Calculadora::invertirPalabra2('Recuperatorio', 14);
 
     echo '<br>Ejercicio 14<br>';
     echo Calculadora::esPar(4).'<br>';
     echo Calculadora::esImpar(4).'<br>';
 
-
+    echo '<br>Ejercicio 15<br>';
 
 ?>
