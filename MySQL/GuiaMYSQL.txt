@@ -1,0 +1,34 @@
+1)Obtener los detalles completos de todos los productos, ordenados alfabéticamente.
+SELECT * FROM `productos` order by pNombre asc 
+2)Obtener los detalles completos de todos los proveedores de ‘Quilmes’
+SELECT * FROM `proveedores` WHERE Localidad = 'Quilmes' 
+3)Obtener todos los envíos en los cuales la cantidad este entre 200 y 300 inclusive.
+SELECT * FROM `envios` WHERE Cantidad BETWEEN 200 AND 300 
+4)Obtener la cantidad total de todos los productos enviados.
+SELECT SUM(Cantidad) FROM `envios` 
+5)Mostrar los primeros 3 números de productos que se han enviado.
+SELECT pNumero FROM envios LIMIT 3 
+6)Mostrar los nombres de proveedores y los nombres de los productos enviados.
+SELECT m.pNombre, p.Nombre FROM envios as e, productos as m, proveedores as p WHERE e.pNumero = m.pNumero AND p.Numero = e.Numero 
+7)Indicar el monto (cantidad * precio) de todos los envíos.
+SELECT SUM(e.Cantidad * m.Precio) as total FROM envios as e, productos as m WHERE e.pNumero = m.pNumero 
+8)Obtener la cantidad total del producto 1 enviado por el proveedor 102.
+SELECT SUM(e.Cantidad) FROM envios as e, proveedores as p WHERE e.Numero = 102 AND e.pNumero=1 
+9)Obtener todos los números de los productos suministrados por algún proveedor de ‘Avellaneda’
+SELECT e.pNumero FROM envios as e, proveedores as p WHERE e.Numero = p.Numero AND p.Localidad = "Avellaneda" 
+10)Obtener los domicilios y localidades de los proveedores cuyos nombres contengan la letra ‘I’.
+SELECT Domicilio, Localidad FROM `proveedores` WHERE Nombre like "%I%"
+11)Agregar el producto numero 4, llamado ‘Chocolate’, de tamaño chico y con un precio de 25,35
+INSERT INTO productos (pNumero, pNombre, Tamaño, Precio) values (4, "Chocolate", "Chico", 25.35)
+12)Insertar un nuevo proveedor (únicamente con los campos obligatorios).
+INSERT INTO proveedores (Numero) VALUES (7)
+13)Insertar un nuevo proveedor (107), donde el nombre y la localidad son ‘Rosales’ y ‘La Plata’
+INSERT INTO proveedores (Numero, Nombre, Localidad) VALUES (107, "Rosales", "La plata")
+14)Cambiar los precios de los productos de tamaño ‘grande’ a 97,50.
+UPDATE `productos` SET Precio = 97.50 WHERE Tamaño = "Grande"
+15)Cambiar el tamaño de ‘Chico’ a ‘Mediano’ de todos los productos cuyas cantidades sean mayores a 300 inclusive
+UPDATE productos as m, envios as e SET m.Tamaño="Mediano" WHERE m.Tamaño = "Chico" AND e.pNumero = m.pNumero AND e.Cantidad > 300
+16)Eliminar el producto número 1.
+DELETE FROM `productos` WHERE pNumero = 1
+17)Eliminar a todos los proveedores que no han enviado productos
+DELETE FROM proveedores WHERE Numero NOT IN (SELECT Numero FROM envios)
